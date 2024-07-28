@@ -21,7 +21,6 @@ def create_box_object(length, width, height, is_hollow=False, shell_thickness=0.
   box_part_object = Part.makeBox(length, width, height, position_vector)
   if is_hollow:
     hollow_box_part_object = Part.makeBox(length - (shell_thickness*2), width - (shell_thickness*2), height - shell_thickness, position_vector.add(Vector(shell_thickness, shell_thickness, 0)))
-    Part.show(hollow_box_part_object)
     box_part_object = box_part_object.cut(hollow_box_part_object)
     
   return box_part_object
